@@ -1,10 +1,7 @@
 var mongoose = require('mongoose');
 var fs = require('fs');
 
-var uristring =
-process.env.MONGOLAB_URI ||
-process.env.MONGOHQ_URL ||
-'mongodb://localhost/bring_it';
+var uristring ='mongodb://localhost/bring_it';
 
 
 mongoose.connect(uristring, function (err, res) {
@@ -14,9 +11,6 @@ mongoose.connect(uristring, function (err, res) {
   console.log ('Succeeded connected to: ' + uristring);
   }
 });
-// connect to the database
-// mongoose.connect('mongodb://localhost/picnic_list');
-// loads all of the model files
 var models_path = __dirname + '/../server/models';
 // for each file in the path
 fs.readdirSync(models_path).forEach(function(file){
