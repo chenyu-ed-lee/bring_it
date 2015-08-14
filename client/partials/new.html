@@ -6,58 +6,57 @@
         });
     })
 </script>
-
-<div ng-controller="eventsController">
+<div ng-controller="eventsController" class="event_width_margin">
+	<h3>Create an event here!</h3>
 	<form name="eventForm">
-		<br><br><br>
-		<div class="row">
-			<div class="input-field col s4">
-				<input name="title" type="text" ng-model="newEvent.title" required>
-		    <label for="title">Event Title</label>
-			</div>
-			<div class="input-field col s8">
-				<input name="description" type="text" ng-model="newEvent.description">
+		<div class="input-field">
+			<label for="host">Host Name</label>
+			<input name="host" type="text" ng-model="newEvent.host_name" required>
+		</div>
+		<div class="input-field">
+			<label for="title">Event Title</label>
+			<input name="title" type="text" ng-model="newEvent.title" required>
+		</div>
+		<div class="input-field">
 		    <label for="description">Description</label>
-			</div>
+			<input name="description" type="text" ng-model="newEvent.description">
 		</div>
-		<div class="row">
-			<div class="col s4">
-				<input name="date" type="date" class="datepicker" ng-model="newEvent.date" required>
-		    <label for="date">Date</label>
-			</div>
-			<div class="col s4">
-				<input placeholder="Time" name="time" type="time" ng-model="newEvent.time" required>
-		    <label for="time">Time</label>
-			</div>
+		<div class="input-field">
+			<label for="date">Date</label>
+			<input name="date" type="date" class="datepicker" ng-model="newEvent.date" required>
 		</div>
-		<h5>Items:</h5>
-		<div >
+		<div class="input-field">
+			<label for="time">Time</label>
+			<input name="time" type="text" ng-model="newEvent.time" required>	
+		</div>
+		<h5>Create a list of items for the event.</h5>
+		<div>
 			<ul>
 				<li ng-repeat="item in items">{{item.quantity}} {{item.name}} <a href="" ng-click="removeNewItem(items.indexOf(item))"><i class="red-text text-lighten-2 fa fa-times"></i></a></li>
 			</ul>
-				<ul>
-					<div class="row">
-						
-							<div class="col s2">
-								<label for="quantity">Quantity</label>
-								<input name="quantity" type="number" value="1" ng-model="newItem.quantity" class="new_quantity" >
-							</div>
-							<div class="input-field col s6">
-								<label for="name">Item</label>
-								<input name="name" type="text" ng-model="newItem.name">
-							</div>
-							<div class="col s2">
-											 <a ng-click="addItem()" class="btn-floating btn-large waves-effect waves-light light-blue accent-1"><i class="material-icons">add</i></a>
-							</div>
-						
-					</div> <!-- end row -->
-					<!-- <input type="submit" value="Add Another Item" ng-click="addItem()"> -->
-				</ul>
+			<ul>
+				<div class="row">
+					<div class="input-field col s3">
+						<label for="quantity">Quantity</label>
+						<input name="quantity" type="text" value="1" ng-model="newItem.quantity">
+					</div>
+					<div class="input-field col s6">
+						<label for="name">Item</label>
+						<input name="name" type="text" ng-model="newItem.name">
+					</div>
+					<div class="col s2">
+						 <a ng-click="addItem()" class="btn-floating btn-large w">
+						 	<i class="material-icons">add</i>
+						 </a>
+					</div>
+				</div> <!-- end row -->
+			</ul>
 		</div>
-		<div class="row">
-					<a href="#/"><input type="submit" value="Save" ng-click="addEvent(items)" ng-disabled="eventForm.$invalid" class="waves-effect waves-light btn orange lighten-3"></a>
+		<a href="#/events">
+			<input type="submit" value="Save" ng-click="addEvent(items)" ng-disabled="eventForm.$invalid" class="waves-effect waves-light btn orange lighten-3">
+		</a>
+		<a href="#/"><button class="waves-effect waves-light btn orange lighten-3">Go Back</button></a>
 	</form>
-	<a href="#/"><button class="waves-effect waves-light btn orange lighten-3">Go Back</button></a>
-		</div>
-
 </div>
+<footer class="page-footer">
+</footer>

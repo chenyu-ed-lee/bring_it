@@ -8,39 +8,37 @@
 
 </script>
 
-<div ng-controller="showController">
-
+<div ng-controller="showController" class="event_width_margin center">
 	<h3>{{events[id].title}}</h3>
 	<h5>{{events[id].description}}</h5>
 	<h5>{{events[id].date | date:'MM/dd/yyyy'}} @ {{events[id].time | date:'hh:mm a'}}</h5>
-	     <div
-        class="fb-like"
-        data-share="true"
-        data-width="450"
-        data-show-faces="true">
-      </div>
+  <br>
 
   <div>
+    <h5>Click on an item to Bring It!</h5>
 		<ul>
       <div ng-repeat="item in events[id].items">
-  			<li ng-click="turnOn(item.name)" class="collapsible_li grey lighten-3"><h5>{{item.quantity}} {{item.name}} <span class="right green-text check" ng-show="hasMoreItems(item)"><i class="material-icons">done</i></span></h5>
+  			<li ng-click="turnOn(item.name)" class="collapsible_li">
+          <h5>
+            {{item.quantity}} {{item.name}}<span class="right green-text check" ng-show="hasMoreItems(item)"><i class="material-icons">done</i></span>
+          </h5>
         </li>
         <li ng-repeat="claims in item.claims" class="claim_div"> 
-
-              <span class="claim_name">{{claims.name}} </span> is bringing {{claims.quantity}} {{claims.description}}
-
+          <span class="claim_name">{{claims.name}} </span> is bringing {{claims.quantity}} {{claims.description}}
         </li>
         <div ng-show='item.truth' class="collapsible_body">
           <div class="row">
-            <div class="col s2">
-              <label for="quantity">Quantity</label>
-              <select class="browser-default" material-select ng-model='itemClaim.quantity'>
-              <option ng-repeat="number in item.itemArray">{{number}}</option>
-              </select>
+            <div class="input-field col s3">
+              <label for="claim_name">Name</label>
+              <input name="claim_name" type="text" ng-model='itemClaim.name'>
             </div>
-            <div class="input-field col s8">
-              <input name="description" type='text' ng-model='itemClaim.description'>
+            <div class="input-field col s2">
+              <label for="quantity">Quantity</label>
+              <input name="quantity" type="text" ng-model='itemClaim.quantity'>
+            </div>
+            <div class="input-field col s7">
               <label for="description">Description</label>
+              <input name="description" type='text' ng-model='itemClaim.description'>
             </div>
           </div>
           <button id="toastmaster" type='submit' ng-click="claimItem(item.name,events[id].items.indexOf(item))" class="waves-effect waves-light btn orange lighten-3">Bring It</button>
@@ -49,8 +47,10 @@
       </div>
 		</ul>
 	</div>
-        
 
-	<a href="#/{{id}}/edit" class="waves-effect waves-light btn light-blue accent-1">Edit Event</a>
-  <a href="#/" class="waves-effect waves-light btn light-blue accent-1">Go Back</a>
+  <br>
+  <a href="#/{{id}}/edit" class="waves-effect waves-light btn light-blue accent-1">Edit Event</a>
+  <a href="#/events" class="waves-effect waves-light btn light-blue accent-1">Go Back</a>
 </div>
+<footer class="page-footer">
+</footer>

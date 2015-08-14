@@ -1,0 +1,18 @@
+<div ng-controller="eventsController" class="event_width_margin center">
+	<h3>List of Events:</h3>
+	<div ng-repeat="event in events | orderBy: 'date' | limitTo: paginationLimit()">
+		<div>
+			<a href="#/{{events.indexOf(event)}}/show">
+				<div class="card grey lighten-3">
+					<div class="card-content black-text">
+						<span class="card-title black-text">{{event.title}}</span>
+						<p>{{event.description}}</p>
+						<p>{{event.date | date:'MM/dd/yyyy'}} @ {{event.time | date:'hh:mm a'}}</p>
+						<p>Host: {{event.host_name}}</p>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+	<a href="" ng-show="hasMoreToShow()" ng-click="showMore()"><p>Show more...</p></a>
+</div>

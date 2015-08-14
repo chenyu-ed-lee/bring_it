@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Bring It</title>
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <!-- Materialize -->
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <!-- AngularJS -->
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+
+  <script src="angular/app.js"></script>
+  <script src="angular/controllers/events-controller.js"></script>
+  <script src="angular/factories/event-factory.js"></script>
+  <script src="angular/controllers/show-controller.js"></script>
+  <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#/" class="brand-logo center">Bring It</a>
+      <ul class="right">
+        <li><a href="#/">Home</a></li>
+        <li><a href=""><i class="material-icons">search</i></a></li>
+        <li><a href=""><i class="material-icons">view_module</i></a></li>
+        <li><a href=""><i class="material-icons">refresh</i></a></li>
+        <li><a href=""><i class="material-icons">more_vert</i></a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div ng-view=""></div>
+  </div>
+</body>
+</html>

@@ -3,7 +3,25 @@
 }
 .button_position{
   position:relative;
-  top:10px;
+}
+.claim_name{
+  font-weight:bold;  
+}
+.claim_div{
+  margin:10px 0 10px 19px;
+}
+.new_quantity{
+  position: relative;
+}
+.edit_quantity_label{
+  position: relative;
+}
+.check{
+  border-radius:50%;
+}
+.event_width_margin{
+  width: 500px;
+  margin: 0px auto;
 }
 .collapsible_li{
   display: block;
@@ -12,41 +30,6 @@
   line-height: 3rem;
   padding: 1px 5px 0px 5px;
   background-color: #fff;
-  /*border: 1px solid silver;*/
   border-collapse: collapse;
 }
-.collapsible_body{
-  border: 2px solid silver;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-  padding:0 0 10px 18px;
 
-}
-.claim_name{
-  font-weight:bold;  
-}
-.claim_div{
-  margin:10px 0 10px 19px;
-}
-
-.new_quantity{
-  position: relative;
-  top: -8px;
-}
-.edit_quantity{
-  position: relative;
-  top: -21px;
-}
-.edit_quantity_label{
-  position: relative;
-  top: -8px;
-}
-.check{
-  border-radius:50%;
-}
-
-.logo{
-  height: 70px;
-  width: 70px;
-  float: right;
-}

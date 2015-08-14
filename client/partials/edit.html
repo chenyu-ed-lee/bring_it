@@ -6,53 +6,49 @@
         });
     })
 </script>
-<div ng-controller="eventsController">
-		<br><br><br>
-		<div class="row">
-		<form>
-			<div class="col s4">
-				<input id="eventName" type="text" ng-model="events[id].title" name="title">
-				<label for="title">Event Title</label>
-			</div>
-			<div class="col s8">
-				<input type="text" ng-model="events[id].description">
-				<label for="description">Description</label>
-			</div>
+<div ng-controller="eventsController" class="event_width_margin">
+	<h3>Edit the Event</h3>
+	<form>
+		<div class="input-field">
+			<input id="eventName" type="text" ng-model="events[id].title" name="title">
+			<label class="active" for="title">Event Title</label>
 		</div>
-		<div class="row">
-			<div class="col s4">
-				<input type="date" class="datepicker" ng-model="events[id].date" name="date">
-				<label for="date">Date</label>
-			</div>
-			<div class="col s4">
-				<input type="time" ng-model="events[id].time">
-				<label>Time</label>
-			</div>
+		<div class="input-field">
+			<input type="text" ng-model="events[id].description">
+			<label class="active" for="description">Description</label>
+		</div>
+		<div class="input-field">
+			<input type="date" class="datepicker" ng-model="events[id].date" name="date">
+			<label class="active" for="date">Date</label>
+		</div>
+		<div class="input-field">
+			<input type="text" ng-model="events[id].time" name="time">
+			<label class="active" for="time">Time</label>
 		</div>
 		<h5>Items:</h5>
-		<label>Items</label>
 		<div>
 			<ul>
 				<li ng-repeat="item in events[id].items">{{item.quantity}} {{item.name}} <a href="" ng-click="removeItem(events[id].items.indexOf(item))"><i class="red-text text-lighten-2 fa fa-times"></i></a></li>
 			</ul>
 			<ul>
 				<div class="row">
-					<div class="col s2">
+					<div class="input-field col s3">
 						<label for="quantity" class="edit_quantity_label">Quantity</label>
-						<input type="number" value="1" ng-model="newItem.quantity" name="quantity" class="edit_quantity">
+						<input type="text" value="1" ng-model="newItem.quantity" name="quantity">
 					</div>
-					<div class="col s6">
-						<label for="itemName"></label>
-						<input type="text" placeholder="Item name" ng-model="newItem.name" name="itemName">
+					<div class="input-field col s6">
+						<label for="name">Item</label>
+						<input type="text" ng-model="newItem.name" name="name">
 					</div>
 					<div class="col s2">
-						<!-- <input type="submit" value="Add Another Item" ng-click="addItem2(id)"> -->
-						<a ng-click="addItem2(id)" class="btn-floating btn-large waves-effect waves-light light-blue accent-1 "><i class="material-icons">add</i></a>
+						<a ng-click="addItem2(id)" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">add</i></a>
 					</div>
 				</div>
 			</ul>
 		</div>
 		<a href="#/{{id}}/show" ng-click="updateEvent(id)" class="waves-effect waves-light btn orange lighten-3">Update Event</a>
+		<a href="#/{{id}}/show"><button class="waves-effect waves-light btn orange lighten-3">Go Back</button></a>
 	</form>
-	<a href="#/{{id}}/show"><button class="waves-effect waves-light btn orange lighten-3">Go Back</button></a>
 </div>
+<footer class="page-footer">
+</footer>

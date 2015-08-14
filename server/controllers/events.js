@@ -14,8 +14,7 @@ module.exports = {
 
 	add: function(req, res){
 		var event = new Event({
-			admin_id: req.user.profile_id,
-			admin_name: req.user.displayName,
+			host_name: req.body.host_name,
 			title: req.body.title,
 			description: req.body.description,
 			date: req.body.date,

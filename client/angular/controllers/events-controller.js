@@ -1,16 +1,8 @@
-myApp.controller('eventsController', function($scope, eventFactory, userFactory, $routeParams){
+myApp.controller('eventsController', function($scope, eventFactory, $routeParams){
 	$scope.events = []; 
 	$scope.items = [];
 	$scope.id = $routeParams.id;
 	updateEvents();
-	getUser();
-	
-	function getUser(){
-		userFactory.getUser(function(output){
-			// console.log($scope.user);
-			$scope.user = output;
-		})
-	}
 
 	function updateEvents(){
 		eventFactory.getEvents(function(output){

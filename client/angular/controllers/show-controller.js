@@ -1,9 +1,8 @@
-myApp.controller('showController', function($scope, eventFactory, userFactory, $routeParams, $timeout){
+myApp.controller('showController', function($scope, eventFactory, $routeParams, $timeout){
 	$scope.events = []; 
 	$scope.items = [];
 	$scope.id = $routeParams.id;
 	$scope.itemClaim = {};
-	getUser();
 	updateEvents();
 
 	$scope.turnOn = function(item){
@@ -12,13 +11,6 @@ myApp.controller('showController', function($scope, eventFactory, userFactory, $
 				$scope.events[$scope.id].items[i].truth = true;
 			}
 		};
-	}
-
-	function getUser(){
-		userFactory.getUser(function(output){
-			// console.log($scope.user);
-			$scope.user = output;
-		})
 	}
 
 	$scope.turnOff = function(item){
@@ -35,7 +27,6 @@ myApp.controller('showController', function($scope, eventFactory, userFactory, $
 				if (typeof $scope.events[$scope.id].items[i].claims == 'undefined'){
 					$scope.events[$scope.id].items[i].claims = [];
 				}
-				$scope.itemClaim.name = $scope.user.displayName;
 				$scope.events[$scope.id].items[i].claims.push($scope.itemClaim);
 				// update in database here... REMEMBER
 				eventFactory.claimItem($scope.events[$scope.id]._id, $scope.events[$scope.id].items)
@@ -45,17 +36,6 @@ myApp.controller('showController', function($scope, eventFactory, userFactory, $
 		}
 		updateEvents();
 		var length = $scope.events[$scope.id].items[id].claims.length -1;
-	    socket.emit('toast', $scope.user.displayName + " is bringing "+" "+$scope.events[$scope.id].items[id].claims[length].quantity+" "+$scope.events[$scope.id].items[id].claims[length].description+" to " + $scope.events[$scope.id].title);
-	}
-
-	function addItemArray(){
-		for (var i in $scope.events[$scope.id].items){
-			var itemArray = [];
-			for (var j=1; j < $scope.events[$scope.id].items[i].quantity+1; j++){
-				itemArray.push(j);
-			}
-			$scope.events[$scope.id].items[i].itemArray = itemArray;
-		}
 	}
 
 	function updateEvents(){
