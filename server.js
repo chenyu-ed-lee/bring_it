@@ -3,7 +3,7 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var app = express();
 
-app.set('port', (5000));
+var port = process.env.PORT || 8000;
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './client')));
@@ -17,6 +17,6 @@ app.get('/', function(req, res) {
   res.render('index');
 });
 
-var server = app.listen(app.get('port'), function(){
-  console.log("Node app is running on port", app.get('port'));
+app.listen(port, function(){
+  console.log("Node app is running on port" + port);
 });
