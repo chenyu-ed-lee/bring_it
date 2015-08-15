@@ -3,7 +3,7 @@ var path = require("path");
 var bodyParser = require("body-parser");
 var app = express();
 
-var port = process.env.PORT || 8000;
+var port = 8000;
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, './client')));
